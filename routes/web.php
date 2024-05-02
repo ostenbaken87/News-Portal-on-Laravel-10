@@ -38,5 +38,15 @@ Route::group(['prefix' => 'admin'], function (){
         Route::put('/{tag}',\App\Http\Controllers\Admin\Tag\UpdateController::class)->name('tags.update');
         Route::delete('/{tag}',\App\Http\Controllers\Admin\Tag\DestroyController::class)->name('tags.destroy');
     });
+//  Roles routes
+    Route::group(['prefix' => 'roles'], function () {
+        Route::get('/', \App\Http\Controllers\Admin\Role\IndexController::class)->name('roles.index');
+        Route::get('/create',\App\Http\Controllers\Admin\Role\CreateController::class)->name('roles.create');
+        Route::post('/',\App\Http\Controllers\Admin\Role\StoreController::class)->name('roles.store');
+        Route::get('/{role}', \App\Http\Controllers\Admin\Role\ShowController::class)->name('roles.show');
+        Route::get('/{role}/edite',\App\Http\Controllers\Admin\Role\EditController::class)->name('roles.edit');
+        Route::put('/{role}',\App\Http\Controllers\Admin\Role\UpdateController::class)->name('roles.update');
+        Route::delete('/{role}',\App\Http\Controllers\Admin\Role\DestroyController::class)->name('roles.destroy');
+    });
 
 });

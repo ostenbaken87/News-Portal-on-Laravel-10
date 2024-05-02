@@ -88,17 +88,21 @@
         </div>
         <div class="main_card yellow">
             <div class="card_icon">
-                <i class="fa-solid fa-id-card-clip"></i>
+                <a href="{{route('roles.index')}}">
+                    <i class="fa-solid fa-id-card-clip"></i>
+                </a>
             </div>
             <div class="card_body">
                 <div class="card_title">
                     Roles :
                 </div>
                 <div class="card_look">
-                    <i class="fas fa-eye"></i>
+                    <a href="{{route('roles.index')}}">
+                        <i class="fas fa-eye"></i>
+                    </a>
                 </div>
                 <div class="card_edit">
-                    <a href="#">
+                    <a href="{{route('roles.create')}}">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
