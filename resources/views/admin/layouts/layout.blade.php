@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdminPanel</title>
-    <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free-6.5.2-web/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free-6.5.2-web/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/css/style.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
                     <a href="{{route('categories.index')}}">Categories</a>
                 </div>
                 <div class="header_navbar_links_link">
-                    <a href="show_tags.html">Tags</a>
+                    <a href="{{route('tags.index')}}">Tags</a>
                 </div>
                 <div class="header_navbar_links_link">
                     <a href="show_posts.html">Posts</a>

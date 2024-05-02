@@ -90,6 +90,7 @@ h1 {
 
 .btn-edit {
     background-color: green;
+    margin-bottom: 15px;
 }
 
 .btn-edit:hover {

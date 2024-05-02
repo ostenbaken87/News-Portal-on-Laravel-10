@@ -26,19 +26,21 @@
         </div>
         <div class="main_card green">
             <div class="card_icon">
-                <i class="fas fa-tags"></i>
+                <a href="{{route('tags.index')}}">
+                    <i class="fas fa-tags"></i>
+                </a>
             </div>
             <div class="card_body">
                 <div class="card_title">
                     Tags :
                 </div>
                 <div class="card_look">
-                    <a href="show_tags.html">
+                    <a href="{{route('tags.index')}}">
                         <i class="fas fa-eye"></i>
                     </a>
                 </div>
                 <div class="card_edit">
-                    <a href="create_tags.html">
+                    <a href="{{route('tags.create')}}">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
@@ -86,14 +88,37 @@
         </div>
         <div class="main_card yellow">
             <div class="card_icon">
-                <i class="fas fa-chart-bar"></i>
+                <i class="fa-solid fa-id-card-clip"></i>
             </div>
             <div class="card_body">
                 <div class="card_title">
-                    Statistics :
+                    Roles :
                 </div>
                 <div class="card_look">
                     <i class="fas fa-eye"></i>
+                </div>
+                <div class="card_edit">
+                    <a href="#">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main_card blue">
+            <div class="card_icon">
+                <i class="fa-solid fa-comments"></i>
+            </div>
+            <div class="card_body">
+                <div class="card_title">
+                    Comments :
+                </div>
+                <div class="card_look">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="card_edit">
+                    <a href="#">
+                        <i class="fas fa-plus"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -134,7 +159,8 @@
                         </div>
                     </div>
                     <div class="comments_user_comment">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores iure molestias praesentium quam qui veritatis?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores iure molestias praesentium
+                            quam qui veritatis?</p>
                     </div>
                 </div>
                 <div class="comments_user grey">
