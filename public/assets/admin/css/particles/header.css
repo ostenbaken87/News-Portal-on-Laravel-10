@@ -17,12 +17,17 @@ header {
 }
 
 .header_navbar_logo_icon {
-    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid;
     background-color: #F0F5F9;
-    padding: 10px;
+    height: 3em;
+    width: 3em;
 }
 
-.header_navbar_logo_icon i{
+.header_navbar_logo_icon i {
     font-size: 30px;
 }
 
@@ -31,16 +36,23 @@ header {
     font-weight: 700;
 }
 
-.header_navbar_links {
+.header_navbar_menu ul {
     display: flex;
 }
 
-.header_navbar_links_link {
-    padding: 0 16px;
+.header_navbar_menu ul li {
+    margin: 0 15px;
+}
+
+.header_navbar_menu ul li a {
+}
+
+.header_navbar_menu ul li a:hover {
+    color: white;
+}
+
+a.active {
+    color: white;
     font-weight: bold;
 }
 
-.header_navbar_links_link a:hover {
-    color: #F0F5F9;
-    transition: all 0.5s;
-}

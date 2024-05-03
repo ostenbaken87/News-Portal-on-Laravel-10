@@ -16,36 +16,36 @@
         <div class="header_navbar wrapper_content">
             <div class="header_navbar_logo">
                 <div class="header_navbar_logo_icon">
-                    <i class="fa-solid fa-font"></i>
+                    <i class="fa-solid fa-hammer"></i>
                 </div>
                 <div class="header_navbar_logo_brand">
                     <a href="{{route('admin.home')}}">AdminPanel</a>
                 </div>
             </div>
-            <div class="header_navbar_links">
-                <div class="header_navbar_links_link">
-                    <a href="{{route('admin.home')}}">Home</a>
-                </div>
-                <div class="header_navbar_links_link">
-                    <a href="{{route('categories.index')}}">Categories</a>
-                </div>
-                <div class="header_navbar_links_link">
-                    <a href="{{route('tags.index')}}">Tags</a>
-                </div>
-                <div class="header_navbar_links_link">
-                    <a href="show_posts.html">Posts</a>
-                </div>
-                <div class="header_navbar_links_link">
-                    <a href="show_users.html">Users</a>
-                </div>
-                <div class="header_navbar_links_link">
-                    <a href="">Statistics</a>
-                </div>
-                <div class="header_navbar_links_link">
-                    <a href="">
-                        <i class="fas fa-sign-in-alt"></i>
-                    </a>
-                </div>
+            <div class="header_navbar_menu">
+                <ul>
+                    <li>
+                        <a href="{{route('admin.home')}}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{route('categories.index')}}">Categories</a>
+                    </li>
+                    <li>
+                        <a href="{{route('tags.index')}}">Tags</a>
+                    </li>
+                    <li>
+                        <a href="{{route('roles.index')}}">Roles</a>
+                    </li>
+                    <li>
+                        <a href="#">Posts</a>
+                    </li>
+                    <li>
+                        <a href="#">Users</a>
+                    </li>
+                    <li>
+                        <a href="#">Comments</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>
@@ -86,5 +86,15 @@
         </div>
     </footer>
 </div>
+<script src="{{asset('assets/admin/js/jQueryv3.7.1.js')}}"></script>
+<script>
+    jQuery(() => {
+        $(".header_navbar_menu [href]").each(function () {
+            if (this.href === window.location.href) {
+                $(this).addClass("active");
+            }
+        });
+    });
+</script>
 </body>
 </html>
