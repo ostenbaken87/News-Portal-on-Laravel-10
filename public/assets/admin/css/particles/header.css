@@ -38,6 +38,7 @@ header {
 
 .header_navbar_menu ul {
     display: flex;
+    align-items: baseline;
 }
 
 .header_navbar_menu ul li {
@@ -54,5 +55,8 @@ header {
 a.active {
     color: white;
     font-weight: bold;
+    background: #4b5563;
+    border-radius: 4px;
+    padding: 10px;
 }
 

@@ -25,25 +25,25 @@
             <div class="header_navbar_menu">
                 <ul>
                     <li>
-                        <a href="{{route('admin.home')}}">Home</a>
+                        <a href="{{route('admin.home')}}">home</a>
                     </li>
                     <li>
-                        <a href="{{route('categories.index')}}">Categories</a>
+                        <a href="{{route('categories.index')}}">categories</a>
                     </li>
                     <li>
-                        <a href="{{route('tags.index')}}">Tags</a>
+                        <a href="{{route('tags.index')}}">tags</a>
                     </li>
                     <li>
-                        <a href="{{route('roles.index')}}">Roles</a>
+                        <a href="{{route('roles.index')}}">roles</a>
                     </li>
                     <li>
-                        <a href="#">Posts</a>
+                        <a href="#">posts</a>
                     </li>
                     <li>
-                        <a href="#">Users</a>
+                        <a href="#">users</a>
                     </li>
                     <li>
-                        <a href="#">Comments</a>
+                        <a href="#">comments</a>
                     </li>
                 </ul>
             </div>
