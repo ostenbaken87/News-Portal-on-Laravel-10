@@ -55,12 +55,12 @@
                     Posts :
                 </div>
                 <div class="card_look">
-                    <a href="show_posts.html">
+                    <a href="{{route('posts.index')}}">
                         <i class="fas fa-eye"></i>
                     </a>
                 </div>
                 <div class="card_edit">
-                    <a href="create_posts.html">
+                    <a href="{{route('posts.create')}}">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>

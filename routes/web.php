@@ -36,5 +36,10 @@ Route::group(['prefix' => 'admin'], function (){
         Route::put('/{role}',\App\Http\Controllers\Admin\Role\UpdateController::class)->name('roles.update');
         Route::delete('/{role}',\App\Http\Controllers\Admin\Role\DestroyController::class)->name('roles.destroy');
     });
-
+// Posts routes
+    Route::group(['prefix' => 'posts'], function () {
+        Route::get('/', \App\Http\Controllers\Admin\Post\IndexController::class)->name('posts.index');
+        Route::get('/create', \App\Http\Controllers\Admin\Post\CreateController::class)->name('posts.create');
+        Route::post('/', \App\Http\Controllers\Admin\Post\StoreController::class)->name('posts.store');
+    });
 });

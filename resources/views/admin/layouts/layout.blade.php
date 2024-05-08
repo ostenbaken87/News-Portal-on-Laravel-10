@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdminPanel</title>
+    <title>Admin Panel</title>
     <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free-6.5.2-web/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/css/style.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
@@ -37,7 +39,7 @@
                         <a href="{{route('roles.index')}}">roles</a>
                     </li>
                     <li>
-                        <a href="#">posts</a>
+                        <a href="{{route('posts.index')}}">posts</a>
                     </li>
                     <li>
                         <a href="#">users</a>
@@ -87,13 +89,35 @@
     </footer>
 </div>
 <script src="{{asset('assets/admin/js/jQueryv3.7.1.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
 <script>
-    jQuery(() => {
-        $(".header_navbar_menu [href]").each(function () {
-            if (this.href === window.location.href) {
-                $(this).addClass("active");
-            }
+    $(function () {
+        jQuery(() => {
+            $(".header_navbar_menu [href]").each(function () {
+                if (this.href === window.location.href) {
+                    $(this).addClass("active");
+                }
+            });
         });
+        $('#summernote').summernote({
+            placeholder: 'Create text post',
+            tabsize: 2,
+            height: 220,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'italic', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ],
+            lang: 'ru-RU',
+            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+
+        });
+        $('.select2').select2()
     });
 </script>
 </body>
