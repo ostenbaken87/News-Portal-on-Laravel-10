@@ -46,4 +46,8 @@ Route::group(['prefix' => 'admin'], function (){
         Route::put('/{post}', \App\Http\Controllers\Admin\Post\UpdateController::class)->name('posts.update');
         Route::delete('/{post}', \App\Http\Controllers\Admin\Post\DestroyController::class)->name('posts.destroy');
     });
+//  Users routes
+    Route::group(['prefix' => 'users'], function () {
+        Route::get('/', \App\Http\Controllers\Admin\User\IndexController::class)->name('users.index');
+    });
 });

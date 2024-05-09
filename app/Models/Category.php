@@ -18,4 +18,16 @@ class Category extends Model
         return $this->hasMany(Post::class);
     }
 
+    public static function checkPostAndDestroy(Category $category)
+    {
+        if ($category->posts()->count()) {
+            return redirect()
+                ->route('categories.index')
+                ->with('error', 'Нельзя удалить категорию с постами');
+        }
+        $category->delete();
+        return redirect()
+            ->route('categories.index')
+            ->with('success', 'Категория удалена');
+    }
 }

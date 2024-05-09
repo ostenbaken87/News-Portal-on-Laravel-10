@@ -66,7 +66,9 @@
 
                 @if (session()->has('error'))
                     <div class="alerts_danger">
+                        <i class="fa-solid fa-circle-exclamation"></i>
                         {{ session('error') }}
+                        <i class="fa-solid fa-circle-exclamation"></i>
                     </div>
                 @endif
 
@@ -74,6 +76,7 @@
                     <div class="alerts_success">
                         <i class="fas fa-check"></i>
                         {{ session('success') }}
+                        <i class="fas fa-check"></i>
                     </div>
                 @endif
             </div>

@@ -118,7 +118,7 @@ h1 {
 }
 
 ul.alerts_list {
-    text-align: center;
+    text-align: start;
     list-style: circle;
     list-style: inside;
     font-weight: bold;
