@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Role;
+namespace App\Http\Requests\Admin\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,7 +22,13 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'role' => 'required|string|max:10|unique:roles'
+            'title' => 'required|string|max:255',
+            'desc' => 'required|string|max:255',
+            'content' => 'required|string',
+            'category_id' => 'required|integer',
+            'tags' => 'nullable|array',
+            'tags.*' => 'integer',
+            'image' => 'nullable|image',
         ];
     }
 }

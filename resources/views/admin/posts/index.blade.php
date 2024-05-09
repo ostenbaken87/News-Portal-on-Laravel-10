@@ -17,14 +17,13 @@
                 </a>
             </div>
         </div>
-        "@if(count($posts))
+        @if(count($posts))
             <table>
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>Text</th>
                     <th>Category</th>
                     <th>Tags</th>
                     <th>Date</th>
@@ -37,24 +36,27 @@
                        <td>{{$post->id}}</td>
                        <td>{{$post->title}}</td>
                        <td>{{$post->desc}}</td>
-                       <td>{{$post->content}}</td>
                        <td>{{$post->category->title}}</td>
                        <td>{{$post->tags->pluck('label')->join(', ')}}</td>
-                       <td>{{$post->created_at}}</td>
+                       <td>{{$post->getPostDate()}}</td>
                        <td>
-                           <a href="show_one_post.html">
+                           <a href="{{route('posts.show', $post->id)}}">
                                <i class="fas fa-eye"></i>
                            </a>
                        </td>
                        <td>
-                           <a href="#">
+                           <a href="{{route('posts.edit', $post->id)}}">
                                <i class="fa-solid fa-pencil"></i>
                            </a>
                        </td>
                        <td>
-                           <a href="">
-                               <i class="fas fa-trash"></i>
-                           </a>
+                           <form class="form_delete" action="{{route('posts.destroy',$post->id)}}" method="post">
+                               @csrf
+                               @method('DELETE')
+                               <button type="submit" onclick="return confirm('Подтвердите удаление')">
+                                   <i class="fas fa-trash"></i>
+                               </button>
+                           </form>
                        </td>
                    </tr>
                @endforeach

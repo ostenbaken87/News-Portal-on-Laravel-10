@@ -2,12 +2,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function (){
-
+//  Main routes
     Route::group(['prefix' => 'main'], function () {
         Route::get('/',\App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.home');
     });
 //  Category routes
-    Route::group(['prefix' => 'categories'], function () {
+    Route::group(['prefix' => 'categories',], function () {
         Route::get('/', \App\Http\Controllers\Admin\Category\IndexController::class)->name('categories.index');
         Route::get('/create',\App\Http\Controllers\Admin\Category\CreateController::class)->name('categories.create');
         Route::post('/',\App\Http\Controllers\Admin\Category\StoreController::class)->name('categories.store');
@@ -41,5 +41,9 @@ Route::group(['prefix' => 'admin'], function (){
         Route::get('/', \App\Http\Controllers\Admin\Post\IndexController::class)->name('posts.index');
         Route::get('/create', \App\Http\Controllers\Admin\Post\CreateController::class)->name('posts.create');
         Route::post('/', \App\Http\Controllers\Admin\Post\StoreController::class)->name('posts.store');
+        Route::get('/{post}', \App\Http\Controllers\Admin\Post\ShowController::class)->name('posts.show');
+        Route::get('/{post}/edite', \App\Http\Controllers\Admin\Post\EditController::class)->name('posts.edit');
+        Route::put('/{post}', \App\Http\Controllers\Admin\Post\UpdateController::class)->name('posts.update');
+        Route::delete('/{post}', \App\Http\Controllers\Admin\Post\DestroyController::class)->name('posts.destroy');
     });
 });
