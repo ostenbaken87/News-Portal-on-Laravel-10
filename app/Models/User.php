@@ -3,10 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Http\Requests\Admin\User\StoreRequest;
+use App\Http\Requests\Admin\User\UpdateRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -23,7 +26,7 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar',
-        'role_id'
+        'roles_id'
     ];
 
     /**
@@ -45,9 +48,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role(): BelongsTo
+    public function roles(): BelongsTo
     {
-        return $this->belongsTo(Roles::class);
+        return $this->belongsTo(Roles::class, 'roles_id', 'id', 'roles');
+    }
+
+    public static function uploadAvatar(StoreRequest $request, $avatar = null)
+    {
+        if ($request->hasFile('avatar')) {
+            if ($avatar) {
+                Storage::delete($avatar);
+            }
+            $folder = date('Y-m-d');
+            return $request->file('avatar')->store("avatars/{$folder}");
+        }
+    }
+
+    public function getAvatar(): string
+    {
+        return !$this->avatar ? asset("default_avatar.jpg") : asset("uploads/{$this->avatar}");
+    }
+
+    public static function updateAvatar(UpdateRequest $request, $avatar = null)
+    {
+        if ($request->hasFile('avatar')) {
+            Storage::delete($avatar);
+            $folder = date('Y-m-d');
+            return $request->file('avatar')->store("avatars/{$folder}");
+        }
     }
 
 }

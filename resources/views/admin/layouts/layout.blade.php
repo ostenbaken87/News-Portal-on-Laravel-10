@@ -42,7 +42,7 @@
                         <a href="{{route('posts.index')}}">posts</a>
                     </li>
                     <li>
-                        <a href="#">users</a>
+                        <a href="{{route('users.index')}}">users</a>
                     </li>
                     <li>
                         <a href="#">comments</a>

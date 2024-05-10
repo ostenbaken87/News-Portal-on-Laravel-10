@@ -49,5 +49,11 @@ Route::group(['prefix' => 'admin'], function (){
 //  Users routes
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', \App\Http\Controllers\Admin\User\IndexController::class)->name('users.index');
+        Route::get('/create',\App\Http\Controllers\Admin\User\CreateController::class)->name('users.create');
+        Route::post('/',\App\Http\Controllers\Admin\User\StoreController::class)->name('users.store');
+        Route::get('/{user}', \App\Http\Controllers\Admin\User\ShowController::class)->name('users.show');
+        Route::get('/{user}/edite',\App\Http\Controllers\Admin\User\EditController::class)->name('users.edit');
+        Route::put('/{user}',\App\Http\Controllers\Admin\User\UpdateController::class)->name('users.update');
+        Route::delete('/{user}',\App\Http\Controllers\Admin\User\DestroyController::class)->name('users.destroy');
     });
 });

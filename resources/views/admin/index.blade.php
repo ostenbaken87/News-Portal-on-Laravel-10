@@ -75,7 +75,7 @@
                     Users :
                 </div>
                 <div class="card_look">
-                    <a href="show_users.html">
+                    <a href="{{route('users.index')}}">
                         <i class="fas fa-eye"></i>
                     </a>
                 </div>
