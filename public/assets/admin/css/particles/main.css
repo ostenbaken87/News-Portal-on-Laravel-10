@@ -92,7 +92,14 @@ main {
 .comments_user_profile img, .users_user_avatar img {
     border-radius: 8px;
     height: 128px;
-    max-width: 128px;
+    width: 128px;
+    object-fit: cover;
+}
+
+.users_user_name small {
+    display: block;
+    font-size: 12px;
+    color: #F0F5F9;
 }
 
 .comments_user_name a:hover {

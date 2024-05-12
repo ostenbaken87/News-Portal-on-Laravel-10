@@ -17,49 +17,63 @@
                 </a>
             </div>
         </div>
-        <table>
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>User name</th>
-                <th>User mail</th>
-                <th>Avatar</th>
-                <th>User role</th>
-                <th colspan="3">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($users as $user)
+        @if(count($users))
+            <table>
+                <thead>
                 <tr>
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>
-                        <img class="avatar" src="{{$user->getAvatar()}}" alt="">
-                    </td>
-                    <td>{{ $user->roles ? $user->roles->role : 'No Role' }}</td>
-                    <td>
-                        <a href="{{route('users.show', $user->id)}}">
-                            <i class="fas fa-eye"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="{{route('users.edit', $user->id)}}">
-                            <i class="fa-solid fa-pencil"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <form class="form_delete" action="{{route('users.destroy',$user->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" onclick="return confirm('Подтвердите удаление')">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </td>
+                    <th>ID</th>
+                    <th>User name</th>
+                    <th>User mail</th>
+                    <th>Avatar</th>
+                    <th>User role</th>
+                    <th colspan="3">Action</th>
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach($users as $user)
+                    <tr>
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>
+                            <img class="avatar" src="{{$user->getAvatar()}}" alt="">
+                        </td>
+                        <td>
+                            @if($user->roles)
+                                {{$user->roles->role}}
+                            @else
+                                No role
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{route('users.show', $user->id)}}">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{route('users.edit', $user->id)}}">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <form class="form_delete" action="{{route('users.destroy',$user->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Подтвердите удаление')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @else
+            <div class="message">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Пользователей пока нет ... добавти пользователя.
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+        @endif
     </div>
 @endsection

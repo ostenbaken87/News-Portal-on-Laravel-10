@@ -94,6 +94,7 @@
 <script src="{{asset('assets/admin/js/jQueryv3.7.1.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
+<script src="{{asset('assets/admin/js/script.js')}}"></script>
 <script>
     $(function () {
         jQuery(() => {
@@ -113,7 +114,7 @@
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
+                ['insert', ['link']],
                 ['view', ['fullscreen', 'codeview', 'help']]
             ],
             lang: 'ru-RU',

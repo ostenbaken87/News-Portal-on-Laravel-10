@@ -1,7 +1,7 @@
 @extends('admin.layouts.layout')
 
 @section('content')
-    <div class="wrapper_content">
+    <div class=" main_show wrapper_content">
         <div class="main_header">
             <div class="main_title">
                 <h1>All Tags</h1>

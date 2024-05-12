@@ -57,3 +57,16 @@ Route::group(['prefix' => 'admin'], function (){
         Route::delete('/{user}',\App\Http\Controllers\Admin\User\DestroyController::class)->name('users.destroy');
     });
 });
+
+//  Front routes
+Route::get('/',\App\Http\Controllers\Front\Main\IndexController::class)->name('front.home');
+
+//  Category routes
+Route::group(['prefix' => 'category'], function () {
+    Route::get('/',\App\Http\Controllers\Front\Category\IndexController::class)->name('category.index');
+});
+
+//  Post routes
+Route::group(['prefix' => 'post'], function () {
+
+});

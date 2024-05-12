@@ -10,7 +10,7 @@
             </div>
             <div class="card_body">
                 <div class="card_title">
-                    Categories :
+                    Categories : {{count($data['categories'])}}
                 </div>
                 <div class="card_look">
                     <a href="{{route('categories.index')}}">
@@ -32,7 +32,7 @@
             </div>
             <div class="card_body">
                 <div class="card_title">
-                    Tags :
+                    Tags : {{count($data['tags'])}}
                 </div>
                 <div class="card_look">
                     <a href="{{route('tags.index')}}">
@@ -52,7 +52,7 @@
             </div>
             <div class="card_body">
                 <div class="card_title">
-                    Posts :
+                    Posts : {{count($data['posts'])}}
                 </div>
                 <div class="card_look">
                     <a href="{{route('posts.index')}}">
@@ -72,7 +72,7 @@
             </div>
             <div class="card_body">
                 <div class="card_title">
-                    Users :
+                    Users : {{count($data['users'])}}
                 </div>
                 <div class="card_look">
                     <a href="{{route('users.index')}}">
@@ -80,7 +80,7 @@
                     </a>
                 </div>
                 <div class="card_edit">
-                    <a href="create_users.html">
+                    <a href="{{route('users.create')}}">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
@@ -94,7 +94,7 @@
             </div>
             <div class="card_body">
                 <div class="card_title">
-                    Roles :
+                    Roles
                 </div>
                 <div class="card_look">
                     <a href="{{route('roles.index')}}">
@@ -114,7 +114,7 @@
             </div>
             <div class="card_body">
                 <div class="card_title">
-                    Comments :
+                    Comments
                 </div>
                 <div class="card_look">
                     <i class="fas fa-eye"></i>
@@ -196,90 +196,24 @@
         </div>
         <div class="main_users">
             <div class="main_users_count graphite">
-                Lust users (7)
+                Lust users ({{count($data['users'])}})
             </div>
             <div class="main_users_lent graphite">
-                <div class="users_user">
-                    <div class="users_user_profile">
-                        <div class="users_user_avatar">
-                            <img src="src/avatars/avatar01.jpg" alt="">
-                        </div>
-                        <div class="users_user_name">
-                            <a href="">
-                                <p>Ivan Ivanov</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="users_user">
-                    <div class="users_user_profile">
-                        <div class="users_user_avatar">
-                            <img src="src/avatars/avatar02.jpg" alt="">
-                        </div>
-                        <div class="users_user_name">
-                            <a href="">
-                                <p>Kaban Kabanov</p>
-                            </a>
+                @foreach($data['users'] as $user)
+                    <div class="users_user">
+                        <div class="users_user_profile">
+                            <div class="users_user_avatar">
+                                <img src="{{$user->getAvatar()}}" alt="">
+                            </div>
+                            <div class="users_user_name">
+                                <a href="{{route('users.show', $user->id)}}">
+                                    <p>{{$user->name}}</p>
+                                </a>
+                                <small>{{$user->roles->role}}</small>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="users_user">
-                    <div class="users_user_profile">
-                        <div class="users_user_avatar">
-                            <img src="src/avatars/avatar03.jpg" alt="">
-                        </div>
-                        <div class="users_user_name">
-                            <a href="">
-                                <p>Bob Green</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="users_user">
-                    <div class="users_user_profile">
-                        <div class="users_user_avatar">
-                            <img src="src/avatars/avatar09.jpg" alt="">
-                        </div>
-                        <div class="users_user_name">
-                            <a href="">
-                                <p>Eddy Brown</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="users_user">
-                    <div class="users_user_profile">
-                        <div class="users_user_avatar">
-                            <img src="src/avatars/avatar05.jpg" alt="">
-                        </div>
-                        <div class="users_user_name">
-                            <a href="">
-                                <p>Conor McGregor</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="users_user">
-                    <div class="users_user_profile">
-                        <div class="users_user_avatar">
-                            <img src="src/avatars/avatar06.jpg" alt="">
-                        </div>
-                        <div class="users_user_name">
-                            <a href="">
-                                <p>Franky Edgar</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="users_user">
-                    <div class="users_user_plus grey">
-                        <div class="users_user_add_more">
-                            <a href="">
-                                <i class="fas fa-plus"></i> All user...
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

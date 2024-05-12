@@ -1,0 +1,11 @@
+.footer {
+    background-color: var(--black);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+    color: var(--white);
+}
+
+.footer_rights {
+    text-align: center;
+}
