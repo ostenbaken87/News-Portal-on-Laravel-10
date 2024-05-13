@@ -1,0 +1,235 @@
+.main_wrapper_article {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.main_single {
+    display: grid;
+    grid-auto-rows: auto;
+    row-gap: 1rem;
+    background: var(--grafite);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.main_single_breadcrumb {
+
+}
+
+.main_single_breadcrumb_item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: var(--white);
+}
+
+.main_single_breadcrumb_item i {
+    margin: 0 0.5rem;
+}
+
+.main_single_breadcrumb_item a {
+    font-weight: bold;
+}
+
+.main_single_article_wrapper {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.main_single_title h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.main_single_desc {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.main_single_img img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.main_single_text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.main_single_tags {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_single_tag {
+    background: var(--grafite);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    font-weight: bolder;
+}
+
+.main_single_tag i {
+    margin-right: 0.5rem;
+}
+
+.main_single_tag a:after {
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: var(--white);
+    transition: width 0.4s ease-in-out;
+}
+
+.main_single_tag a:hover:after, a:focus:after {
+    width: 100%;
+}
+
+.main_comment_form {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.main_comment_form_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.main_comment_form_body {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.main_comment_form_body textarea {
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray);
+    width: 100%;
+}
+
+.main_comment_form_body textarea:focus {
+    outline: none;
+}
+
+.main_comment_form_body input {
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray);
+    width: 25%;
+    font-weight: bolder;
+    cursor: pointer;
+    justify-self: center;
+}
+
+.main_single_comments {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.main_single_comments_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.main_single_comments_list {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.main_single_comment {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: var(--gray) 1px solid;
+    padding-bottom: 1rem;
+}
+
+.main_single_comment:last-child {
+    border-bottom: 0;
+}
+
+.main_single_comment_author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main_single_comment_img img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.main_single_comment_user {
+    font-weight: bold;
+}
+
+.main_all_tags {
+    display: grid;
+    grid-auto-flow: row;
+    height: max-content;
+    background: var(--grafite);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.main_all_tags_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background: var(--white);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+}
+
+.main_all_tags_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 1.5rem;
+}
+
+.main_all_tag a{
+    background: var(--white);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    font-weight: bolder;
+    color: var(--black);
+}
+
+.main_all_tag a:hover {
+    background: var(--black);
+    color: var(--white);
+    transition: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -63,10 +63,15 @@ Route::get('/',\App\Http\Controllers\Front\Main\IndexController::class)->name('f
 
 //  Category routes
 Route::group(['prefix' => 'category'], function () {
-    Route::get('/',\App\Http\Controllers\Front\Category\IndexController::class)->name('category.index');
+    Route::get('/{category}',\App\Http\Controllers\Front\Category\ShowController::class)->name('category.show');
 });
 
 //  Post routes
 Route::group(['prefix' => 'post'], function () {
+    Route::get('/{post}',\App\Http\Controllers\Front\Post\ShowController::class)->name('post.show');
+});
 
+//  Tag routes
+Route::group(['prefix' => 'tag'], function () {
+    Route::get('/{tag}',\App\Http\Controllers\Front\Tag\ShowController::class)->name('tag.show');
 });
