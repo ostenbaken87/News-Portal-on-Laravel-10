@@ -11,7 +11,7 @@ class ShowController extends Controller
     public function __invoke(Category $category)
     {
         $categories = Category::query()->get();
-        $posts = $category->posts()->with('category')->orderBy('id', 'desc')->get();
+        $posts = $category->posts()->with('category', 'comments')->orderBy('id', 'desc')->get();
         return view('front.categories.show', compact('category', 'posts', 'categories'));
     }
 }

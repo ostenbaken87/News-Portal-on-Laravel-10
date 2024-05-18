@@ -11,8 +11,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $users = User::all();
-        $roles = Roles::with('users')->get();
-        return view('admin.users.index', compact('roles','users'));
+        $users = User::with('roles')->get();
+        return view('admin.users.index', compact('users'));
     }
 }

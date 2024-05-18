@@ -1,57 +1,9 @@
 .main_wrapper {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 480px auto 1fr;
+    grid-template-rows: auto;
     gap: 1rem;
     margin-bottom: 1rem;
-}
-
-.main_slider {
-    background: var(--gray);
-    border-radius: var(--border-radius);
-    padding: 1rem;
-    box-shadow: var(--box-shadow);
-    grid-column: span 2;
-    display: flex;
-    overflow-x: hidden;
-    scroll-snap-type: x mandatory;
-    width: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-.main_slider .main_slide img {
-    height: 450px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-}
-
-.main_slide {
-    position: relative;
-    flex: none;
-    scroll-snap-align: center;
-    width: 100%;
-    margin-right: 1rem;
-}
-
-.main_slider_text {
-    position: absolute;
-    background: var(--white);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    left: 1rem;
-    bottom: 1rem;
-    font-weight: bold;
-    max-width: 75%;
-}
-
-.main_slider_arrow {
-    position: absolute;
-    background: var(--white);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    right: 1rem;
-    bottom: 1rem;
 }
 
 .main_page {
@@ -161,6 +113,10 @@
     object-fit: cover;
 }
 
+.main_sidebar_message p {
+    margin-left: 1rem;
+}
+
 .main_sidebar_more {
     display: flex;
     flex-direction: column;
@@ -219,6 +175,48 @@
     font-weight: bold;
     color: var(--black);
 }
+
+@media screen and (max-width: 1060px) {
+    .main_wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        row-gap: 1rem;
+        column-gap: 0;
+    }
+
+    .main_page {
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .main_popular_articles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .main_popular_article {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .main_list {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .main_popular_articles {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
 
 
 

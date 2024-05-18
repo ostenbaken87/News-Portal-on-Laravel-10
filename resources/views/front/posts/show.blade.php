@@ -37,10 +37,11 @@
                 <div class="main_comment_form_title">
                     Leave a comment
                 </div>
-                <form class="main_comment_form_body" action="#" method="post">
-                    <label for="comment">Your comment</label>
-                    <textarea name="comment" id="comment" rows="6"></textarea>
-                    <input type="submit" name="submit" id="submit" value="Send">
+                <form class="main_comment_form_body" action="{{route('post.comment.store', $post->id)}}" method="post">
+                    @csrf
+                    <label for="message">Your comment</label>
+                    <textarea name="message" id="message" rows="6"></textarea>
+                    <input type="submit" value="Send">
                 </form>
             </div>
             <div class="main_single_comments">

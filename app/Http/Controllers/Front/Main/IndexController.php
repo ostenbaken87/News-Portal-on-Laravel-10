@@ -14,7 +14,7 @@ class IndexController extends Controller
         $categories = Cache::remember('categories', 60, function () {
             return Category::with('posts')->get();
         });
-        $posts = Post::query()
+        $posts = Post::with('comments')
             ->orderBy('created_at', 'desc')
             ->limit(4)
             ->get();

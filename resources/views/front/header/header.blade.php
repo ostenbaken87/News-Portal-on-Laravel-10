@@ -7,9 +7,16 @@
         <div class="header_nav">
             <ul class="header_list">
                 @foreach($categories as $category)
-                    <li class="header_item"><a href="{{route('category.show', $category->id)}}">{{$category->title}}</a></li>
+                    <li class="header_item">
+                        <a href="{{route('category.show', $category->id)}}">
+                            {{$category->title}}
+                        </a>
+                    </li>
                 @endforeach
             </ul>
+            <div class="header_burger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
         <div class="header_enter">
             <a href=""><i class="fa-solid fa-door-open"></i>logout</a>

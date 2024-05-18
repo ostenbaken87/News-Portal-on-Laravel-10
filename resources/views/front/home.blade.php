@@ -2,38 +2,6 @@
 
 @section('content')
     <div class="main_wrapper">
-        <div class="main_slider">
-            <div class="main_slide">
-                <img src="{{asset('assets/front/images/biden.jpg')}}" alt="">
-                <div class="main_slider_text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus corporis, error fugit impedit
-                    necessitatibus nobis? Aperiam at et ipsa nam nesciunt quis repellendus unde.
-                </div>
-                <div class="main_slider_arrow">
-                    <i class="fa-solid fa-angles-right"></i>
-                </div>
-            </div>
-            <div class="main_slide">
-                <img src="{{asset('assets/front/images/putin.jpg')}}" alt="">
-                <div class="main_slider_text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus corporis, error fugit impedit
-                    necessitatibus nobis? Aperiam at et ipsa nam nesciunt quis repellendus unde.
-                </div>
-                <div class="main_slider_arrow">
-                    <i class="fa-solid fa-angles-right"></i>
-                </div>
-            </div>
-            <div class="main_slide">
-                <img src="{{asset('assets/front/images/macron.jpg')}}" alt="">
-                <div class="main_slider_text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus corporis, error fugit impedit
-                    necessitatibus nobis? Aperiam at et ipsa nam nesciunt quis repellendus unde.
-                </div>
-                <div class="main_slider_arrow">
-                    <i class="fa-solid fa-angles-right"></i>
-                </div>
-            </div>
-        </div>
         <div class="main_page">
             <div class="main_articles">
                 <div class="main_title">
@@ -117,7 +85,9 @@
                             <img src="{{$popular_post->getImage()}}" alt="">
                         </div>
                         <div class="main_popular_article_title">
-                            {{$popular_post->title}}
+                            <a href="{{route('post.show', $popular_post->id)}}">
+                                {{$popular_post->title}}
+                            </a>
                         </div>
                     </div>
                 @endforeach

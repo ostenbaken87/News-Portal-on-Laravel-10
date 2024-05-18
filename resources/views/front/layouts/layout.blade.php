@@ -21,7 +21,17 @@
         </div>
     </footer>
 </div>
-<script src=""></script>
 <script src="{{asset('assets/front/jquery/jquery.min.js')}}"></script>
+<script>
+    $(function () {
+        jQuery(() => {
+            $(".header_list [href]").each(function () {
+                if (this.href === window.location.href) {
+                    $(this).addClass("active");
+                }
+            });
+        });
+    })
+</script>
 </body>
 </html>
