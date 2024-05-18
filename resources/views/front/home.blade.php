@@ -8,30 +8,34 @@
                     <h1>New articles</h1>
                 </div>
                 <div class="main_list">
-                    @foreach($posts as $post)
-                        <div class="main_article">
-                            <div class="main_article_img">
-                                <img src="{{$post->getImage()}}" alt="">
-                            </div>
-                            <div class="main_article_title">
-                                <a href="{{route('post.show', $post->id)}}">{{$post->title}}</a>
-                            </div>
-                            <div class="main_article_desc">
-                                {{$post->desc}}
-                            </div>
-                            <div class="main_article_read">
-                                <div>
-                                    <a href="{{route('post.show', $post->id)}}">Read</a>
+                    @if(isset($posts) && count($posts) > 0)
+                        @foreach($posts as $post)
+                            <div class="main_article">
+                                <div class="main_article_img">
+                                    <img src="{{$post->getImage()}}" alt="">
                                 </div>
-                                <div>
-                                    <i class="fa-solid fa-comments"></i> : {{$post->comments->count()}}
+                                <div class="main_article_title">
+                                    <a href="{{route('post.show', $post->id)}}">{{$post->title}}</a>
                                 </div>
-                                <div>
-                                    <i class="fa-solid fa-eye"></i> : {{$post->views}}
+                                <div class="main_article_desc">
+                                    {{$post->desc}}
+                                </div>
+                                <div class="main_article_read">
+                                    <div>
+                                        <a href="{{route('post.show', $post->id)}}">Read</a>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-comments"></i> : {{$post->comments->count()}}
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-eye"></i> : {{$post->views}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <p>No posts</p>
+                    @endif
                 </div>
             </div>
         </div>

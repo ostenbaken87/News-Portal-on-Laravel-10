@@ -59,6 +59,13 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
+//  Auth routes
+Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'index'])->name('register.index');
+Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'store'])->name('register.store');
+Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login.index');
+Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'store'])->name('login.store');
+Route::get('/logout', [\App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('logout');
+
 //  Front routes
 Route::get('/', \App\Http\Controllers\Front\Main\IndexController::class)->name('front.home');
 
@@ -71,10 +78,11 @@ Route::group(['prefix' => 'category'], function () {
 Route::group(['prefix' => 'post'], function () {
     Route::get('/{post}', \App\Http\Controllers\Front\Post\ShowController::class)->name('post.show');
     Route::group(['prefix' => '{post}/comments'], function () {
-        Route::post('/', \App\Http\Controllers\Front\Post\Comment\StoreController::class)->name('post.comment.store');});
+        Route::post('/', \App\Http\Controllers\Front\Post\Comment\StoreController::class)->name('post.comment.store');
+    });
 });
 
 //  Tag routes
-    Route::group(['prefix' => 'tag'], function () {
-        Route::get('/{tag}', \App\Http\Controllers\Front\Tag\ShowController::class)->name('tag.show');
-    });
+Route::group(['prefix' => 'tag'], function () {
+    Route::get('/{tag}', \App\Http\Controllers\Front\Tag\ShowController::class)->name('tag.show');
+});

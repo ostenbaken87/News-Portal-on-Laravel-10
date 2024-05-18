@@ -130,91 +130,109 @@
     <div class="main_community wrapper_content">
         <div class="main_comments">
             <div class="main_comments_count grey">
-                Lust comments (8)
+                Last comments (8)
             </div>
-            <div class="main_comments_lent">
-                <div class="comments_user grey">
-                    <div class="comments_user_profile">
-                        <div class="comments_user_photo">
-                            <img src="src/avatars/avatar01.jpg" alt="">
+            @if(count($data['comments']))
+                <div class="main_comments_lent">
+                    <div class="comments_user grey">
+                        <div class="comments_user_profile">
+                            <div class="comments_user_photo">
+                                <img src="src/avatars/avatar01.jpg" alt="">
+                            </div>
+                            <div class="comments_user_name">
+                                <a href="">
+                                    <p>Ivan Ivanov</p>
+                                </a>
+                            </div>
                         </div>
-                        <div class="comments_user_name">
-                            <a href="">
-                                <p>Ivan Ivanov</p>
-                            </a>
+                        <div class="comments_user_comment">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, dolore libero nisi
+                                officia rerum unde.
+                            </p>
                         </div>
                     </div>
-                    <div class="comments_user_comment">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, dolore libero nisi
-                            officia rerum unde.
-                        </p>
+                    <div class="comments_user grey">
+                        <div class="comments_user_profile">
+                            <div class="comments_user_photo">
+                                <img src="src/avatars/avatar02.jpg" alt="">
+                            </div>
+                            <div class="comments_user_name">
+                                <a href="">
+                                    <p>Ivan Ivanov</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="comments_user_comment">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores iure molestias praesentium
+                                quam qui veritatis?</p>
+                        </div>
+                    </div>
+                    <div class="comments_user grey">
+                        <div class="comments_user_profile">
+                            <div class="comments_user_photo">
+                                <img src="src/avatars/avatar03.jpg" alt="">
+                            </div>
+                            <div class="comments_user_name">
+                                <a href="">
+                                    <p>Ivan Ivanov</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="comments_user_comment">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid debitis dignissimos
+                                dolorum eveniet fugit harum perferendis placeat quod.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="comments_user grey">
-                    <div class="comments_user_profile">
-                        <div class="comments_user_photo">
-                            <img src="src/avatars/avatar02.jpg" alt="">
-                        </div>
-                        <div class="comments_user_name">
-                            <a href="">
-                                <p>Ivan Ivanov</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="comments_user_comment">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores iure molestias praesentium
-                            quam qui veritatis?</p>
+                <div class="comments_user_plus grey">
+                    <div class="comments_user_add_more">
+                        <a href="">
+                            <i class="fas fa-plus"></i> Show all...
+                        </a>
                     </div>
                 </div>
-                <div class="comments_user grey">
-                    <div class="comments_user_profile">
-                        <div class="comments_user_photo">
-                            <img src="src/avatars/avatar03.jpg" alt="">
-                        </div>
-                        <div class="comments_user_name">
-                            <a href="">
-                                <p>Ivan Ivanov</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="comments_user_comment">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid debitis dignissimos
-                            dolorum eveniet fugit harum perferendis placeat quod.
-                        </p>
-                    </div>
+            @else
+                <div class="comments_user_plus grey">
+                    Comments not found
                 </div>
-            </div>
-            <div class="comments_user_plus grey">
-                <div class="comments_user_add_more">
-                    <a href="">
-                        <i class="fas fa-plus"></i> Show all...
-                    </a>
-                </div>
-            </div>
+            @endif
         </div>
         <div class="main_users">
             <div class="main_users_count graphite">
-                Lust users ({{count($data['users'])}})
+                Last users ({{count($data['users'])}})
             </div>
-            <div class="main_users_lent graphite">
-                @foreach($data['users'] as $user)
-                    <div class="users_user">
-                        <div class="users_user_profile">
-                            <div class="users_user_avatar">
-                                <img src="{{$user->getAvatar()}}" alt="">
-                            </div>
-                            <div class="users_user_name">
-                                <a href="{{route('users.show', $user->id)}}">
-                                    <p>{{$user->name}}</p>
-                                </a>
-                                <small>{{$user->roles->role}}</small>
+            @if(count($data['users']))
+                <div class="main_users_lent graphite">
+                    @foreach($data['users'] as $user)
+                        <div class="users_user">
+                            <div class="users_user_profile">
+                                <div class="users_user_avatar">
+                                    <img src="{{$user->getAvatar()}}" alt="">
+                                </div>
+                                <div class="users_user_name">
+                                    <a href="{{route('users.show', $user->id)}}">
+                                        <p>{{$user->name}}</p>
+                                    </a>
+                                    <small>
+                                        @if($user->roles)
+                                            {{$user->roles->role}}
+                                        @else
+                                            No role
+                                        @endif
+                                    </small>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @else
+                <div class="main_users_lent graphite">
+                    Users not found
+                </div>
+            @endif
         </div>
     </div>
 @endsection

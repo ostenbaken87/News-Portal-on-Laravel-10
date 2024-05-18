@@ -15,7 +15,7 @@ class IndexController extends Controller
             return Category::with('posts')->get();
         });
         $posts = Post::with('comments')
-            ->orderBy('created_at', 'desc')
+            ->latest()
             ->limit(4)
             ->get();
         $popular_posts = Post::query()

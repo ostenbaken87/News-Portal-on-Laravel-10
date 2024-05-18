@@ -6,21 +6,28 @@
         </div>
         <div class="header_nav">
             <ul class="header_list">
-                @foreach($categories as $category)
-                    <li class="header_item">
-                        <a href="{{route('category.show', $category->id)}}">
-                            {{$category->title}}
-                        </a>
-                    </li>
-                @endforeach
+                @if(isset($categories) && count($categories) > 0)
+                    @foreach($categories as $category)
+                        <li class="header_item">
+                            <a href="{{route('category.show', $category->id)}}">
+                                {{$category->title}}
+                            </a>
+                        </li>
+                    @endforeach
+                @endif
             </ul>
             <div class="header_burger">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
         <div class="header_enter">
-            <a href=""><i class="fa-solid fa-door-open"></i>logout</a>
-            <a href=""><i class="fa-solid fa-door-closed"></i>login</a>
+            @auth
+                <a href="{{route('logout')}}"><i class="fa-solid fa-door-open"></i>logout</a>
+            @endauth
+            @guest
+                <a href="{{route('register.index')}}"><i class="fa-solid fa-door-open"></i>register</a>
+                <a href="{{route('login.index')}}"><i class="fa-solid fa-door-closed"></i>login</a>
+            @endguest
         </div>
     </div>
 </header>

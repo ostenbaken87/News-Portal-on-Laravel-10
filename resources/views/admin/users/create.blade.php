@@ -52,7 +52,7 @@
                         <option value="{{$k}}">{{$v}}</option>
                     @endforeach
                 @else
-                    <option>Create role</option>
+                    <option value="Create role">Create role</option>
                 @endif
             </select>
 
