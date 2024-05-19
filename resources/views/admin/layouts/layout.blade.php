@@ -22,6 +22,7 @@
                 </div>
                 <div class="header_navbar_logo_brand">
                     <a href="{{route('admin.home')}}">AdminPanel</a>
+                    <a class="header_navbar_site" href="{{route('front.home')}}">go Site...</a>
                 </div>
             </div>
             <div class="header_navbar_menu">

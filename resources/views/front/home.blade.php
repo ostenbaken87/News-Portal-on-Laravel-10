@@ -82,20 +82,24 @@
             <div class="main_popular_title">
                 <h3>Popular articles</h3>
             </div>
-            <div class="main_popular_articles">
-                @foreach($popular_posts as $popular_post)
-                    <div class="main_popular_article">
-                        <div class="main_popular_article_img">
-                            <img src="{{$popular_post->getImage()}}" alt="">
+            @if(isset($popular_posts) && count($popular_posts) > 0)
+                <div class="main_popular_articles">
+                    @foreach($popular_posts as $popular_post)
+                        <div class="main_popular_article">
+                            <div class="main_popular_article_img">
+                                <img src="{{$popular_post->getImage()}}" alt="">
+                            </div>
+                            <div class="main_popular_article_title">
+                                <a href="{{route('post.show', $popular_post->id)}}">
+                                    {{$popular_post->title}}
+                                </a>
+                            </div>
                         </div>
-                        <div class="main_popular_article_title">
-                            <a href="{{route('post.show', $popular_post->id)}}">
-                                {{$popular_post->title}}
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @else
+                <p>No popular posts</p>
+            @endif
         </div>
     </div>
 @endsection

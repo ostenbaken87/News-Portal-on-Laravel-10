@@ -14,6 +14,10 @@
                             </a>
                         </li>
                     @endforeach
+                @else
+                    <li class="header_item">
+                        Категорий пока нет ... добавти категорию.
+                    </li>
                 @endif
             </ul>
             <div class="header_burger">

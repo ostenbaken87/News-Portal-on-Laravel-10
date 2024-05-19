@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\StoreRequest;
+use App\Http\Requests\Admin\User\StoreRequest;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -22,6 +23,7 @@ class RegisterController extends Controller
     {
         $data = $request->validated();
         $data['password'] = bcrypt($data['password']);
+        $data['avatar'] = User::uploadAvatar($request);
         $user = \App\Models\User::create($data);
         auth()->login($user);
         return view('front.home');

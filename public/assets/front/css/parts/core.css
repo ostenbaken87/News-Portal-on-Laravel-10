@@ -41,7 +41,44 @@ a {
     margin: 0 auto;
 }
 
+.alerts_block {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.alerts_data {
+
+}
+
+ul.alerts_list {
+    text-align: start;
+    list-style: circle;
+    list-style: inside;
+    font-weight: bold;
+    background: #EA5455;
+    color: white;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.alert_danger {
+    background: #EA5455;
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.alert_danger i {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
 
 
 

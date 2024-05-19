@@ -36,6 +36,21 @@ header {
     font-weight: 700;
 }
 
+.header_navbar_site{
+    color: var(--grafite);
+    font-weight: 700;
+    border: 1px solid darkslategray;
+    border-radius: 4px;
+    padding: 0.5rem;
+    transition: all 0.5s;
+}
+
+.header_navbar_site:hover{
+    color: white;
+    border: 1px solid gray;
+    background-color: darkslategray;
+}
+
 .header_navbar_menu ul {
     display: flex;
     align-items: baseline;

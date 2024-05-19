@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="main_register_login">
+
         <h1>Login</h1>
         <form action="{{route('login.store')}}" method="post">
             @csrf
@@ -19,6 +20,12 @@
             <button type="submit" value="Register">
                 Login
             </button>
+            @if(session()->has('error'))
+                <div class="alert alert_danger">
+                    <i class="fa-solid fa-person-circle-exclamation"></i>
+                    {{ session('error') }}
+                </div>
+            @endif
         </form>
     </div>
 @endsection

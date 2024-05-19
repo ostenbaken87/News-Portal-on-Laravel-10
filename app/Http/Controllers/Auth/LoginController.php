@@ -23,6 +23,6 @@ class LoginController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             return redirect()->route('front.home');
         }
-        return redirect()->back();
+        return redirect()->back()->with('error', 'Неверный логин или пароль');
     }
 }
