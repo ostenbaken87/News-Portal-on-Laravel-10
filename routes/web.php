@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 //  Main routes
     Route::group(['prefix' => 'main'], function () {
         Route::get('/', \App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.home');
