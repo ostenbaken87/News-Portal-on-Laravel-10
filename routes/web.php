@@ -66,6 +66,7 @@ Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'index'
 Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'store'])->name('login.store');
 Route::get('/logout', [\App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('logout');
 
+
 //  Front routes
 Route::get('/', \App\Http\Controllers\Front\Main\IndexController::class)->name('front.home');
 

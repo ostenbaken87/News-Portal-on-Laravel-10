@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\User\StoreRequest;
 use App\Http\Requests\Admin\User\UpdateRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
@@ -53,6 +54,11 @@ class User extends Authenticatable
         return $this->belongsTo(Roles::class, 'roles_id', 'id', 'roles');
     }
 
+    public function comments(): HasMany
+    {
+        $this->hasMany(Comment::class,'user_id', 'id');
+    }
+
     public static function uploadAvatar(StoreRequest $request, $avatar = null)
     {
         if ($request->hasFile('avatar')) {
@@ -72,7 +78,9 @@ class User extends Authenticatable
     public static function updateAvatar(UpdateRequest $request, $avatar = null)
     {
         if ($request->hasFile('avatar')) {
-            Storage::delete($avatar);
+            if ($avatar !== null) {
+                Storage::delete($avatar);
+            }
             $folder = date('Y-m-d');
             return $request->file('avatar')->store("avatars/{$folder}");
         }

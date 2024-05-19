@@ -94,6 +94,14 @@
     width: 100%;
 }
 
+.main_comment_link {
+    color: var(--grafite);
+}
+
+.main_comment_link:hover {
+    color: var(--black);
+}
+
 .main_comment_form {
     background: var(--white);
     padding: 1rem;

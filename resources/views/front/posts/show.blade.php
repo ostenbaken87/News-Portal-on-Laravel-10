@@ -33,66 +33,50 @@
                     </div>
                 @endforeach
             </div>
-            <div class="main_comment_form">
-                <div class="main_comment_form_title">
-                    Leave a comment
+            @guest()
+                <div class="main_comment_form">
+                    <div class="main_comment_form_title">
+                        <a class="main_comment_link" href="{{route('register.index')}}">SignUn</a>
+                        or
+                        <a class="main_comment_link" href="{{route('login.index')}}">SignIn</a>
+                        to leave a comment
+                    </div>
                 </div>
-                <form class="main_comment_form_body" action="{{route('post.comment.store', $post->id)}}" method="post">
-                    @csrf
-                    <label for="message">Your comment</label>
-                    <textarea name="message" id="message" rows="6"></textarea>
-                    <input type="submit" value="Send">
-                </form>
-            </div>
+            @endguest
+            @auth()
+                <div class="main_comment_form">
+                    <div class="main_comment_form_title">
+                        Leave a comment
+                    </div>
+                    <form class="main_comment_form_body" action="{{route('post.comment.store', $post->id)}}"
+                          method="post">
+                        @csrf
+                        <label for="message">Your comment</label>
+                        <textarea name="message" id="message" rows="6"></textarea>
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+            @endauth
             <div class="main_single_comments">
                 <div class="main_single_comments_title">
-                    Comments (2)
+                    Comments ({{$post->comments->count()}})
                 </div>
                 <div class="main_single_comments_list">
-                    <div class="main_single_comment">
-                        <div class="main_single_comment_author">
-                            <div class="main_single_comment_img">
-                                <img src="{{asset('assets/front/image_face/macron_face.jpeg')}}" alt="">
+                    @foreach($post->comments as $comment)
+                        <div class="main_single_comment">
+                            <div class="main_single_comment_author">
+                                <div class="main_single_comment_img">
+                                    <img src="{{$comment->user->getAvatar()}}" alt="">
+                                </div>
+                                <div class="main_single_comment_user">
+                                    {{$comment->user->name}}
+                                </div>
                             </div>
-                            <div class="main_single_comment_user">
-                                User name
-                            </div>
-                        </div>
-                        <div class="main_single_comment_text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus corporis, error
-                            fugit
-                        </div>
-                    </div>
-
-                    <div class="main_single_comment">
-                        <div class="main_single_comment_author">
-                            <div class="main_single_comment_img">
-                                <img src="{{asset('assets/front/image_face/putin_face.jpeg')}}" alt="">
-                            </div>
-                            <div class="main_single_comment_user">
-                                User name
+                            <div class="main_single_comment_text">
+                                {{$comment->message}}
                             </div>
                         </div>
-                        <div class="main_single_comment_text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus corporis, error
-                            fugit
-                        </div>
-                    </div>
-
-                    <div class="main_single_comment">
-                        <div class="main_single_comment_author">
-                            <div class="main_single_comment_img">
-                                <img src="{{asset('assets/front/image_face/scholz_face.jpg')}}" alt="">
-                            </div>
-                            <div class="main_single_comment_user">
-                                User name
-                            </div>
-                        </div>
-                        <div class="main_single_comment_text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus corporis, error
-                            fugit
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -100,7 +84,8 @@
             <div class="main_all_tags_title">All Tags</div>
             <div class="main_all_tags_list">
                 @foreach($tags as $tag)
-                    <div class="main_all_tag"><a href="{{route('tag.show', $tag->id)}}"><i class="fa-solid fa-tags"></i> {{$tag->label}}</a></div>
+                    <div class="main_all_tag"><a href="{{route('tag.show', $tag->id)}}"><i
+                                class="fa-solid fa-tags"></i> {{$tag->label}}</a></div>
                 @endforeach
             </div>
         </div>

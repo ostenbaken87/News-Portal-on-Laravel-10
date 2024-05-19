@@ -52,7 +52,9 @@ class Post extends Model
     public static function updateImage(UpdateRequest $request, $image = null)
     {
         if ($request->hasFile('image')) {
-            Storage::delete($image);
+            if ($image !== null) {
+                Storage::delete($image);
+            }
             $folder = date('Y-m-d');
             return $request->file('image')->store("images/{$folder}");
         }
